@@ -10,12 +10,15 @@ class Blockchain {
       - 存储区块的映射
   */
  //构造函数，区块链的名字
- constructor(name,genesis,blocks){
+ constructor(name){
   this.name=name;
-  this.Blockchain=[genesis]
-  blocks=new map[[Block.hash,hash]]
+  }
+
+ genesis(Block){
+  return this.chain=[Block];
  }
 
+blocks={}
   // 2. 定义 longestChain 函数
   /* 
     返回当前链中最长的区块信息列表
