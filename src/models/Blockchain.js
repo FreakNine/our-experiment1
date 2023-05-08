@@ -1,3 +1,6 @@
+import { map } from "ramda";
+import Block from "./Block";
+
 // Blockchain
 class Blockchain {
   // 1. 完成构造函数及其参数
@@ -7,9 +10,10 @@ class Blockchain {
       - 存储区块的映射
   */
  //构造函数，区块链的名字
- constructor(name,genesis){
+ constructor(name,genesis,blocks){
   this.name=name;
-  this.Blockchain=[this.genesis]
+  this.Blockchain=[genesis]
+  blocks=new map[[Block.hash,hash]]
  }
 
   // 2. 定义 longestChain 函数
@@ -17,7 +21,10 @@ class Blockchain {
     返回当前链中最长的区块信息列表
   */
   longestChain() {
-  h
+    let i=0;
+  while (i<this.length){
+    
+  }
 
     return []
   }
