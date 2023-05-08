@@ -19,7 +19,7 @@ const main = () => {
     1,
     sha256(new Date().getTime().toString()).toString(),
   )
-
+  
   blockchain.blocks[newBlock.hash] = newBlock
 
   var nextBlock = new Block(
