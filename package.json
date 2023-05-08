@@ -1,14 +1,21 @@
 {
-  "name": "blockchain-js",
+  "name": "blockchain",
   "version": "0.1.0",
   "type": "module",
   "dependencies": {
     "crypto-js": "^3.1.9-1",
     "crypto.js": "^3.1.0",
     "elliptic": "^6.4.0",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "check:lesson1": "node src/tests/lesson1.js"
-  }
+  },
+  "description": "- 2021131062-孔令杰 （组长）\r - 2021131049-马应佳\r - 2021131060-廖卓\r - 2021131059-田朝伟\r - 2021131061-江鸿羽\r - 2021131046－杜彦霖",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {}
 }
