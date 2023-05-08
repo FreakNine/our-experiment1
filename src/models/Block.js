@@ -2,20 +2,14 @@ import  SHA256  from "crypto-js";
 class Block {
   // 1. 完成构造函数及其参数
   /* 构造函数需要包含
-  时间戳timestamp，数据data，上一个区块的hash值previousHash，难度系数nonce。
+  Blockchain所在的区块链,prehash上一个区块的hash值,height所在链的长度,hash这个区块的hash值。
   */
-  constructor(Blockchain,timestamp,data, previousHash = '') {
-    this.timestamp = timestamp;
-    this.data = data;
-    this.previousHash = previousHash;
-    this.nonce=0;
+  
+  constructor(Blockchain,prehash,height,hash) {
+    this.height=height;
     this.Blockchain=Blockchain;
-    this.hash = this.calculateHash(); 
+    this.prehash=prehash
+    this.hash =hash;
+  }
 }
-//获取区块的hash值
-calculateHash() {
-    return SHA256(this.previousHash + this.timestamp+this.nonce+ JSON.stringify(this.data)).toString();
-}
-}
-
 export default Block
