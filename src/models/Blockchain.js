@@ -1,5 +1,5 @@
-import { map } from "ramda";
-import Block from "./Block";
+import { chain } from "ramda";
+
 
 // Blockchain
 class Blockchain {
@@ -10,12 +10,14 @@ class Blockchain {
       - 存储区块的映射
   */
  //构造函数，区块链的名字
- constructor(name){
+constructor(name){
   this.name=name;
+  var chain =new Array();
+  return chain
   }
 
- genesis(Block){
-  return this.chain=[Block];
+ genesis(){
+  return chain[0];
  }
 
 blocks={}
@@ -24,12 +26,18 @@ blocks={}
     返回当前链中最长的区块信息列表
   */
   longestChain() {
-    let i=0;
-  while (i<this.length){
-    
+    var backchain=[]
+    var index =0
+  for(let i=chain.length-1;i>=0;i--){
+    if(this.chain[i].prehash!=null){
+      backchain[index]=this.chain[i];
+      index++;
+    }
+    else{
+      break;
+    }
   }
-
-    return []
+    return backchain
   }
 }
 
