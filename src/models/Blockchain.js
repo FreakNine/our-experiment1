@@ -29,9 +29,9 @@ constructor(name,genesis){
   */
   longestChain() {
     var backchain=[];
-    var keys=this.blocks.keys;
-  for(let i=0;i<=keys.length-1;i++){
-    backchain.push(this.blocks.get(keys[i]))
+    var value=this.blocks.values();
+  for(var data of value){
+    backchain.push(data)
   }
     return backchain
   }
