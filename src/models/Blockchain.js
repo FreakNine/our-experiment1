@@ -14,12 +14,11 @@ class Blockchain {
  //地址映射就是一个map。
   blocks=new Map()
   //增加创世区块
-  genesis(){
-  return chain[0];
- }
+  genesis
  //构造函数
-constructor(name){
+constructor(name,genesis){
   this.name=name;
+  this.genesis=genesis;
   }
 
  
@@ -29,19 +28,14 @@ constructor(name){
     返回当前链中最长的区块信息列表
   */
   longestChain() {
-    var backchain=[]
-    var index =0
-  for(let i=chain.length-1;i>=0;i--){
-    if(this.chain[i].prehash!=null){
-      backchain[index]=this.chain[i];
-      index++;
-    }
-    else{
-      break;
-    }
+    var backchain=[];
+    var keys=this.blocks.keys;
+  for(let i=0;i<=keys.length-1;i++){
+    backchain.push(this.blocks.get(keys[i]))
   }
     return backchain
   }
 }
+
 
 export default Blockchain
