@@ -1,4 +1,4 @@
-import { chain } from "ramda";
+import { chain, map } from "ramda";
 
 
 // Blockchain
@@ -9,18 +9,21 @@ class Blockchain {
       - 创世区块
       - 存储区块的映射
   */
- //构造函数，区块链的名字
-constructor(name){
-  this.name=name;
-  var chain =new Array();
-  return chain
-  }
-
- genesis(){
+ //区块链的名字
+  name;
+ //地址映射就是一个map。
+  blocks=new Map()
+  //增加创世区块
+  genesis(){
   return chain[0];
  }
+ //构造函数
+constructor(name){
+  this.name=name;
+  }
 
-blocks={}
+ 
+
   // 2. 定义 longestChain 函数
   /* 
     返回当前链中最长的区块信息列表
