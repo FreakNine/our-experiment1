@@ -29,9 +29,22 @@ constructor(name,genesis){
   */
   longestChain() {
     var backchain=[];
+<<<<<<< Updated upstream
     var keys=this.blocks.keys;
   for(let i=0;i<=keys.length-1;i++){
     backchain.push(this.blocks.get(keys[i]))
+=======
+    var value=this.blocks.values();
+  for(var data of value){
+    for(var data1 of value){
+      if(data.height==data1.height && data.hash!=data1.hash){
+        backchain.push(data1)
+      }else{
+        backchain.push(data1)
+      }
+    }
+    
+>>>>>>> Stashed changes
   }
     return backchain
   }
