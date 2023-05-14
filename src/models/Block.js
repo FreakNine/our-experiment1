@@ -1,4 +1,4 @@
-export const DIFFICULTY = 2
+export const DIFFICULTY = 1000
 class Block {
   // 1. 完成构造函数及其参数
   /* 构造函数需要包含
@@ -24,7 +24,7 @@ class Block {
 
   //验证区块是否符合挖矿难度
   isValid() {
-    if (this.hash==DIFFICULTY){
+    if (this.hash<=this.Nonce){
       return true;
     }else{
       return false;
