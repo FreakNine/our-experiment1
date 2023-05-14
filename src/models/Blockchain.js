@@ -31,7 +31,15 @@ constructor(name,genesis){
     var backchain=[];
     var value=this.blocks.values();
   for(var data of value){
-    backchain.push(data)
+    // backchain.push(data)
+    for(var data1 of value){
+      if(data.height==data1.height && data.hash!=data1.hash){
+        backchain.push(data1)
+      }else{
+        backchain.push(data1)
+      }
+    }
+    
   }
     return backchain
   }
