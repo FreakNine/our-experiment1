@@ -1,7 +1,7 @@
 import Block, { DIFFICULTY } from '../models/Block.js'
 import Blockchain from '../models/Blockchain.js'
 import sha256 from 'crypto-js/sha256.js'
-import { calcNonce } from '../utils.js'
+import { calcNonce } from '../validators/utils.js'
 
 const main = () => {
   // 初始化区块链
@@ -31,7 +31,7 @@ const main = () => {
 
   console.assert(newBlock.isValid() == true, 'Error: Very low probability')
 
-  blockchain.blocks[newBlock.hash] = newBlock
+  blockchain.blocks.set(newBlock.hash,newBlock)
 
   let nextBlock = new Block(
     blockchain,
@@ -50,8 +50,8 @@ const main = () => {
   nextBlock = calcNonce(nextBlock)
   nextCompetitionBlock = calcNonce(nextCompetitionBlock)
   // 添加两个区块高度为 2  的的竞争区块
-  blockchain.blocks[nextBlock.hash] = nextBlock
-  blockchain.blocks[nextCompetitionBlock.hash] = nextCompetitionBlock
+  blockchain.blocks.set(nextBlock.hash,nextBlock)
+  blockchain.blocks.set(nextCompetitionBlock.hash,nextCompetitionBlock)
 
   let longestChain = blockchain.longestChain()
 
@@ -67,7 +67,7 @@ const main = () => {
   
   thirdBlock = calcNonce(thirdBlock)
 
-  blockchain.blocks[thirdBlock.hash] = thirdBlock
+  blockchain.blocks.set(thirdBlock.hash,thirdBlock)
 
   longestChain = blockchain.longestChain()
 
