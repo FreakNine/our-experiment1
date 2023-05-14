@@ -1,4 +1,4 @@
-export const DIFFICULTY = 1000
+export const DIFFICULTY = 10
 class Block {
   // 1. 完成构造函数及其参数
   /* 构造函数需要包含
