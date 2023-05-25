@@ -1,4 +1,5 @@
 import { chain, map } from "ramda";
+import Block from "./Block";
 
 
 // Blockchain
@@ -45,19 +46,34 @@ constructor(name,genesis){
     // 判断当前区块链是否包含
     containsBlock(block) {
       // 添加判断方法
-      return false
+      var value=this.blocks.values();
+      for(var data of value){
+        if(data == block){
+          return true
+        }else{
+          return false
+        }
+      }
+      
     }
       // 获得区块高度最高的区块
   maxHeightBlock() {
-    // return Block
+    var heightestBlock = new Block();
+    var value=this.blocks.values();
+      for(var data of value){
+        if(data.height > heightestBlock.height){
+          heightestBlock = data;
+        }
+      }
+     return heightestBlock
   }
     // 添加区块
   /*
 
   */
   _addBlock(block) {
-    if (!block.isValid()) return
-    if (this.containsBlock(block)) return
+    if (!block.isValid()) return  console.log("这个区块不符合挖矿难度")
+    if (this.containsBlock(block)) return console.log("这个链已经有这个区块")
 
     // 添加 UTXO 快照与更新的相关逻辑
   }
