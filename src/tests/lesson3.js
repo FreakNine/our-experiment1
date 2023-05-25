@@ -1,7 +1,7 @@
 import Block, { DIFFICULTY } from '../models/Block.js'
 import Blockchain from '../models/Blockchain.js'
 import sha256 from 'crypto-js/sha256.js'
-import { calcNonce } from '../utils.js'
+import { calcNonce } from '../validators/utils.js'
 
 const main = () => {
   const miner =
@@ -29,7 +29,7 @@ const main = () => {
 
   console.assert(
     newBlock.coinbaseBeneficiary == miner,
-    'Error: Block niner public key error',
+    'Error: Block miner public key error',
   )
 
   // 验证区块难度合法性
