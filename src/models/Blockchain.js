@@ -29,11 +29,6 @@ constructor(name,genesis){
   */
   longestChain() {
     var backchain=[];
-<<<<<<< Updated upstream
-    var keys=this.blocks.keys;
-  for(let i=0;i<=keys.length-1;i++){
-    backchain.push(this.blocks.get(keys[i]))
-=======
     var value=this.blocks.values();
   for(var data of value){
     for(var data1 of value){
@@ -44,9 +39,27 @@ constructor(name,genesis){
       }
     }
     
->>>>>>> Stashed changes
   }
     return backchain
+  }
+    // 判断当前区块链是否包含
+    containsBlock(block) {
+      // 添加判断方法
+      return false
+    }
+      // 获得区块高度最高的区块
+  maxHeightBlock() {
+    // return Block
+  }
+    // 添加区块
+  /*
+
+  */
+  _addBlock(block) {
+    if (!block.isValid()) return
+    if (this.containsBlock(block)) return
+
+    // 添加 UTXO 快照与更新的相关逻辑
   }
 }
 
