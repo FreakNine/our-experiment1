@@ -1,23 +1,30 @@
-<<<<<<< Updated upstream
-
-=======
 export const DIFFICULTY = 2
->>>>>>> Stashed changes
 class Block {
   // 1. 完成构造函数及其参数
   /* 构造函数需要包含
-  Blockchain所在的区块链,prehash上一个区块的hash值,height所在链的长度,hash这个区块的hash值。
   */
   
-  Blockchain;//区块所在链的信息
-  prehash;//上一个区块的hash
-  height;//区块的高度
-  hash;//本身的hash值
-  constructor(Blockchain,prehash,height,hash) {
+  //区块所在链的信息
+  Blockchain;
+  //上一个区块的hash
+  prehash;
+  //区块的高度
+  height;
+  //本身的hash值
+  hash;
+  //
+  utxoPool;
+  //一个区块奖励最终的受益者
+  coinbaseBeneficaiary;
+  //矿工
+  miner;
+
+  constructor(Blockchain,prehash,height,hash,miner) {
     this.height=height;
     this.Blockchain=Blockchain;
     this.prehash=prehash
     this.hash =hash;
+    this.miner=miner;
   }
 }
 export default Block
