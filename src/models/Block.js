@@ -25,8 +25,6 @@ class Block {
     this.prehash=prehash
     this.hash =hash;
     this.miner=miner;
-<<<<<<< Updated upstream
-=======
   }
   //验证是否符合挖矿难度
   isValid() {
@@ -35,9 +33,8 @@ class Block {
     }else{
       return false;
     }
->>>>>>> Stashed changes
   }
- //修改Noce
+ //修改Nonce
   setNonce(Nonce){
     this.Nonce=Nonce;
   }
