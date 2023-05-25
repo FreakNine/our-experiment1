@@ -25,6 +25,21 @@ class Block {
     this.prehash=prehash
     this.hash =hash;
     this.miner=miner;
+<<<<<<< Updated upstream
+=======
+  }
+  //验证是否符合挖矿难度
+  isValid() {
+    if (this.hash<=this.Nonce){
+      return true;
+    }else{
+      return false;
+    }
+>>>>>>> Stashed changes
+  }
+ //修改Noce
+  setNonce(Nonce){
+    this.Nonce=Nonce;
   }
 }
 export default Block
