@@ -49,12 +49,21 @@ const main = () => {
     miner,
   )
 
+  let nextCompetitionBlock = new Block(
+    blockchain,
+    newBlock.hash,
+    2,
+    sha256((new Date().getTime() + 1).toString()).toString(),
+    miner,
+  )
+
   nextBlock = calcNonce(nextBlock)
+  nextCompetitionBlock = calcNonce(nextCompetitionBlock)
   // 添加两个区块高度为 2  的的竞争区块
   blockchain._addBlock(nextBlock)
+  blockchain._addBlock(nextCompetitionBlock)
 
   let longestChain = blockchain.longestChain()
-
   console.assert(longestChain.length == 2, 'Error: Block height should be 2')
 
   let thirdBlock = new Block(
@@ -69,7 +78,7 @@ const main = () => {
   blockchain._addBlock(thirdBlock)
 
   longestChain = blockchain.longestChain()
-
+  
   // 区块检查
   console.assert(longestChain.length == 3, 'Block height should be 2')
   console.assert(
@@ -78,7 +87,7 @@ const main = () => {
   )
 
   // UTXO check
-
+  console.log(blockchain.blocks.values())
   console.assert(
     blockchain.containsBlock(thirdBlock) == true,
     'Error: blockchain should contain third block',
