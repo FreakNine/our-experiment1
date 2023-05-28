@@ -55,10 +55,7 @@ const main = () => {
   blockchain.blocks.set(thirdBlock.hash,thirdBlock)
 
   longestChain = blockchain.longestChain()
-<<<<<<< Updated upstream
-=======
  
->>>>>>> Stashed changes
 
   // 区块检查
   console.assert(longestChain.length == 3, 'Block height should be 2')
@@ -66,11 +63,6 @@ const main = () => {
     longestChain[2].hash == thirdBlock.hash,
     `Height block hash should be ${thirdBlock.hash}`,
   )
-<<<<<<< Updated upstream
-}
-
-=======
   console.log(longestChain)
   }
->>>>>>> Stashed changes
 main()
