@@ -1,5 +1,5 @@
-import { chain, map } from "ramda";
-import Block from "./Block";
+
+import Block from "./Block.js";
 
 
 // Blockchain
@@ -34,13 +34,17 @@ constructor(name,genesis){
   for(var data of value){
     for(var data1 of value){
       if(data.height==data1.height && data.hash!=data1.hash){
-        backchain.push(data1)
+        backchain.push(data)
       }else{
         backchain.push(data1)
       }
     }
-    
   }
+  // var lastBlockhash = this.maxHeightBlock().hash;
+  // while(lastBlockhash!='root'){
+  //   backchain.push(this.blocks.get(lastBlockhash));
+  //   lastBlockhash = this.blocks.get(lastBlockhash).prehash
+  // }
     return backchain
   }
     // 判断当前区块链是否包含
@@ -60,22 +64,23 @@ constructor(name,genesis){
   maxHeightBlock() {
     var heightestBlock = new Block();
     var value=this.blocks.values();
-      for(var data of value){
-        if(data.height > heightestBlock.height){
-          heightestBlock = data;
-        }
+    for(var data of value){
+      if(data.height > heightestBlock.height){
+        heightestBlock = data;
       }
-     return heightestBlock
+    }
+    return heightestBlock
   }
     // 添加区块
   /*
 
   */
   _addBlock(block) {
-    if (!block.isValid()) return  console.log("这个区块不符合挖矿难度")
+    if (!block.isValid()) return console.log("这个区块不符合挖矿难度")
     if (this.containsBlock(block)) return console.log("这个链已经有这个区块")
-
+    this.blocks.set(block.hash,block)
     // 添加 UTXO 快照与更新的相关逻辑
+    
   }
 }
 
